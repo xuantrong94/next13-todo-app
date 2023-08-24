@@ -25,8 +25,8 @@ const todoSlice = createSlice({
         }
         return todo;
       });
-    },
-  },
+    }
+  }
 });
 export const { addTodo, removeTodo, updateTodo } = todoSlice.actions;
 export default todoSlice.reducer;

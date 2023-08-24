@@ -21,23 +21,23 @@ const colors = [
   {
     id: 1,
     color: 'bg-green-500',
-    isCheck: true,
+    isCheck: true
   },
   {
     id: 2,
     color: 'bg-blue-500',
-    isCheck: false,
+    isCheck: false
   },
   {
     id: 3,
     color: 'bg-yellow-500',
-    isCheck: false,
+    isCheck: false
   },
   {
     id: 4,
     color: 'bg-red-500',
-    isCheck: false,
-  },
+    isCheck: false
+  }
 ];
 
 export function replaceSpaceWithDash(str: string) {
@@ -63,7 +63,7 @@ const Option: React.FC<OptionProps> = ({ icon, text }) => {
       href={url}
     >
       {icon}
-      <span className='capitalize text-sm'>{text}</span>
+      <span className='text-sm capitalize'>{text}</span>
     </Link>
   );
 };
@@ -78,12 +78,12 @@ const Sidebar = (props: Props) => {
       if (color.id === id) {
         return {
           ...color,
-          isCheck: true,
+          isCheck: true
         };
       }
       return {
         ...color,
-        isCheck: false,
+        isCheck: false
       };
     });
     setTheme(newColors);
@@ -100,7 +100,7 @@ const Sidebar = (props: Props) => {
       <div className='search py-3'>
         <input
           type='text'
-          className='w-full px-2 py-1 rounded-md border border-gray-100 focus:outline-none focus:ring-1 focus:ring-gray-400 text-sm'
+          className=' w-full rounded-md border border-gray-100 px-2 py-1 text-sm focus:outline-none  focus:ring-1 focus:ring-gray-400'
           onChange={(e) => handleSearch(e.target.value)}
           placeholder='Search'
         />
@@ -131,11 +131,11 @@ const Sidebar = (props: Props) => {
             <BiColorFill size={20} />
             <span className='text-sm'>Theme</span>
           </div>
-          <div className='flex items-center flex-shrink-0 flex-grow-0 gap-2'>
+          <div className='flex flex-shrink-0 flex-grow-0 items-center gap-2'>
             {theme.map((color) => (
               <button
                 key={color.id}
-                className={`${color.color} rounded-full w-4 h-4`}
+                className={`${color.color} h-4 w-4 rounded-full`}
                 onClick={() => handleSetTheme(color.id)}
               >
                 {color.isCheck && <AiOutlineCheck className='' />}
